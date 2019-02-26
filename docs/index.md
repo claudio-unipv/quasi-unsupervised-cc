@@ -1,9 +1,17 @@
-<h1 align="center">Quasi-unsupervised color constancy</h1>
-<p align="center">
-  <a href="mailto:simone.bianco@disco.unimib.it">Simone Bianco</a> - University of Milano-Bicocca<br>
-  <a href="mailto:claudio.cusano@unipv.it">Claudio Cusano</a> - University of Pavia<br>
-  <br>
-  <a href="http://cvpr2019.thecvf.com/">CVPR 2019 paper (accepted)</a><br>
-  <a href="https://github.com/claudio-unipv/quasi-unsupervised-cc">Github project page</a>
-</p>
+## Authors
 
+- Simone Bianco ([simone.bianco@disco.unimib.it](mailto:simone.bianco@disco.unimib.it)) - University of Milano-Bicocca<br>
+- Claudio Cusano ([claudio.cusano@unipv.it](mailto:claudio.cusano@unipv.it))- University of Pavia<br>
+
+## Abstract
+
+We present here a method for computational color constancy in which a deep convolutional neural network is trained to detect 
+achromatic pixels in color images after they have been converted to grayscale.
+The method does not require any information about the illuminant in the scene
+and relies on the weak assumption, fulfilled by almost all images available on the Web, that training images have been approximately balanced.
+Because of this requirement we define our method as *quasi-unsupervised*. 
+After training, unbalanced images can be processed thanks to the preliminary conversion to grayscale of the input to the neural 
+network.
+The results of an extensive experimentation demonstrate that the proposed method is able to outperform the other unsupervised 
+methods in the state of the art being, at the  same  time, flexible enough to be supervisedly fine-tuned to reach performance 
+comparable with those of the best supervised methods.
