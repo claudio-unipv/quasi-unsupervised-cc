@@ -17,7 +17,7 @@ import ptcolor
 
 
 def parse_args():
-    DEFAULT_TRAINING_LIST = "../data/train.txt"
+    DEFAULT_TRAINING_LIST = "train.txt"
     parser = argparse.ArgumentParser(description="Train the achromatic pixel detector")
     a = parser.add_argument
     a("output_dir", help="Directory where training data is placed")
