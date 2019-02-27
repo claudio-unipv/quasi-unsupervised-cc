@@ -1,7 +1,7 @@
 ## Authors
 
 - Simone Bianco ([simone.bianco@disco.unimib.it](mailto:simone.bianco@disco.unimib.it)) - University of Milano-Bicocca<br>
-- Claudio Cusano ([claudio.cusano@unipv.it](mailto:claudio.cusano@unipv.it))- University of Pavia<br>
+- Claudio Cusano ([claudio.cusano@unipv.it](mailto:claudio.cusano@unipv.it)) - University of Pavia<br>
 
 ## Abstract
 
@@ -15,3 +15,39 @@ network.
 The results of an extensive experimentation demonstrate that the proposed method is able to outperform the other unsupervised 
 methods in the state of the art being, at the  same  time, flexible enough to be supervisedly fine-tuned to reach performance 
 comparable with those of the best supervised methods.
+
+## Overview
+
+
+
+## Installing and running the software
+
+The method is implemented in the python programming language and uses the pytorch framework for deep learning.
+It has been tested on a workstation equiped with a single NVIDIA Titan-Xp GPU and with the Ubuntu 18.04 operating system,
+python version 3.6.7, CUDA 10.0, CUDNN 7.4.1.
+
+To install the software the following steps are suggested (others may work as well):
+
+from a terminal:
+```
+git clone https://github.com/claudio-unipv/quasi-unsupervised-cc.git
+cd quasi-unsupervised-cc
+python3 -m venv venv
+source venv/bin/activate
+pip install -r requirements.txt
+cd src
+```
+
+When you finished using the software you can exit the virtual environment with the `deactivate` command.
+
+
+### Training a new model
+
+### Trained models
+
+If you don't want to train the models by yourself, you can find some pretrained version at this 
+[link](https://drive.google.com/drive/folders/1WYXCK-6rY4fxLnpXkJDd6h0-Dof_CLLG?usp=sharing).
+Nine variants are provided differing in the training set (ILSVRC12, Places365, Flickr100k) and in
+the information exploited (equalized grayscale, gradient directions, and their combination).
+
+### Using an already trained model
