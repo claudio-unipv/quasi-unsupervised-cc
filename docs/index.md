@@ -18,14 +18,7 @@ comparable with those of the best supervised methods.
 
 ## Test !!!
 
-[ah](https://cdn.knightlab.com/libs/juxtapose/latest/embed/index.html?uid=aa2fc318-3a89-11e9-9dba-0edaf8f81e27)
-
-https://cdn.knightlab.com/libs/juxtapose/latest/embed/index.html?uid=aa2fc318-3a89-11e9-9dba-0edaf8f81e27
-
-<iframe frameborder="0" class="juxtapose" width="100%" height="256" src="https://cdn.knightlab.com/libs/juxtapose/latest/embed/index.html?uid=aa2fc318-3a89-11e9-9dba-0edaf8f81e27"></iframe>
-
-![ah](https://cdn.knightlab.com/libs/juxtapose/latest/embed/index.html?uid=aa2fc318-3a89-11e9-9dba-0edaf8f81e27)
-
+<iframe frameborder="0" class="juxtapose" scrolling="no" src="https://cdn.knightlab.com/libs/juxtapose/latest/embed/index.html?uid=aa2fc318-3a89-11e9-9dba-0edaf8f81e27"></iframe>
 
 
 ## Overview
