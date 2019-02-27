@@ -21,10 +21,18 @@ comparable with those of the best supervised methods.
 Given an unbalanced RAW image, the method estimates the color of the illuminant in the scene to make it possible to render the photo as if it was taken under a neutral illuminant.
 
 <p align="center">
-<iframe frameborder="0" class="juxtapose" scrolling="no" src="https://cdn.knightlab.com/libs/juxtapose/latest/embed/index.html?uid=aa2fc318-3a89-11e9-9dba-0edaf8f81e27"></iframe>
+<iframe frameborder="0" class="juxtapose" scrolling="no" width="200%" height="200%" src="https://cdn.knightlab.com/libs/juxtapose/latest/embed/index.html?uid=aa2fc318-3a89-11e9-9dba-0edaf8f81e27"></iframe>
 </p>
 
-The illuminant is estimated as the weighted average of a set of pixels identified by a deep neural network trained on a large set of "almost balanced" images.
+The illuminant is estimated as the weighted average of a set of pixels identified by a deep neural network trained on a large set 
+of "almost balanced" images. The input is first converted to grayscale so that the neural network is not influenced by the real 
+color of the illuminant ond so that the method can work equally well for both public images found on the web and for raw unbalanced images. This allows to leverage large training sets of images without having any information about the actual color of the illuminant.
+
+![schema](https://raw.githubusercontent.com/claudio-unipv/quasi-unsupervised-cc/master/docs/schema.png)
+
+Here are some other examples (input, selected pixels, balanced output).
+
+![examples](https://raw.githubusercontent.com/claudio-unipv/quasi-unsupervised-cc/master/docs/examples-test-h.jpg)
 
 
 ## Installing and running the software
