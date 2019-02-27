@@ -16,13 +16,15 @@ The results of an extensive experimentation demonstrate that the proposed method
 methods in the state of the art being, at the  same  time, flexible enough to be supervisedly fine-tuned to reach performance 
 comparable with those of the best supervised methods.
 
-## Test !!!
-
-<iframe frameborder="0" class="juxtapose" scrolling="no" src="https://cdn.knightlab.com/libs/juxtapose/latest/embed/index.html?uid=aa2fc318-3a89-11e9-9dba-0edaf8f81e27"></iframe>
-
-
 ## Overview
 
+Given an unbalanced RAW image, the method estimates the color of the illuminant in the scene to make it possible to render the photo as if it was taken under a neutral illuminant.
+
+<p align="center">
+<iframe frameborder="0" class="juxtapose" scrolling="no" src="https://cdn.knightlab.com/libs/juxtapose/latest/embed/index.html?uid=aa2fc318-3a89-11e9-9dba-0edaf8f81e27"></iframe>
+</p>
+
+The illuminant is estimated as the weighted average of a set of pixels identified by a deep neural network trained on a large set of "almost balanced" images.
 
 
 ## Installing and running the software
