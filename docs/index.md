@@ -18,6 +18,7 @@ comparable with those of the best supervised methods.
 
 ## Overview
 
+<iframe frameborder="0" class="juxtapose" width="100%" height="256" src="https://cdn.knightlab.com/libs/juxtapose/latest/embed/index.html?uid=aa2fc318-3a89-11e9-9dba-0edaf8f81e27"></iframe>
 
 
 ## Installing and running the software
