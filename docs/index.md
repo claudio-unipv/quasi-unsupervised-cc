@@ -56,17 +56,32 @@ cd src
 When you finished using the software you can exit the virtual environment with the `deactivate` command.
 
 
-### Training a new model
+### Using the software
 
-### Trained models
-
-If you don't want to train the models by yourself, you can find some pretrained version at this 
+To apply the method to test images you need a trained model.  If you
+don't want to train it by yourself, you can find some pretrained
+version at this
 [link](https://drive.google.com/drive/folders/1WYXCK-6rY4fxLnpXkJDd6h0-Dof_CLLG?usp=sharing).
-Nine variants are provided differing in the training set (ILSVRC12, Places365, Flickr100k) and in
-the information exploited (equalized grayscale, gradient directions, and their combination).
+Nine variants are provided differing in the training set (ILSVRC12,
+Places365, Flickr100k) and in the information exploited (equalized
+grayscale, gradient directions, and their combination).
 
-### Using an already trained model
+The paths to the images you want to process must be placed in a text file (one path per image).
+Optionally, to make it possible to assess the accuracy of the model, you can specify the actual
+color of the illuminant after each image path.  See, for instance, the lists in the `data` or in
+the `examples` directories.
+
+The `evalmodel.py` script, in the `src` directory will apply the model.
 
 ```
 python3 evalmodel.py --apply-gamma --output-dir out ilsvrc12-eg.pt ../examples/examples.txt
 ```
+
+This will apply the model `ilsvrc12-eg.pt` to the images listed in `../examples/examples.txt`
+and will save some output data and images in the directory `out`.  The option ``--apply-gamma`
+applies the sRGB gamma to the balanced output images.
+See the output of `python3 evalmodel.py -h` for more options. 
+
+
+### Training a new model
+
