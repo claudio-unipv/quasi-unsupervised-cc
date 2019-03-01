@@ -139,6 +139,8 @@ def process_test_set(args, fold=None):
         if args.output_dir is not None:
             balanced = processing.apply_correction(fullres_ng, estimate.cpu())
             if args.apply_gamma:
+                if not args.remove_gamma:
+                    fullres = ptcolor.apply_gamma(fullres_ng)
                 balanced = ptcolor.apply_gamma(balanced)
                 estimate = ptcolor.apply_gamma(estimate.unsqueeze(-1).unsqueeze(-1)).view(-1, 3)
                 illuminant = ptcolor.apply_gamma(illuminant.unsqueeze(-1).unsqueeze(-1)).view(-1, 3)
