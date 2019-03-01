@@ -35,6 +35,7 @@ Here are some other examples (input, selected pixels, balanced output).
 ![examples](https://raw.githubusercontent.com/claudio-unipv/quasi-unsupervised-cc/master/docs/examples-test-h.jpg)
 
 
+
 ## Installing and running the software
 
 The method is implemented in the python programming language and uses the pytorch framework for deep learning.
@@ -66,7 +67,7 @@ training set (ILSVRC12, Places365, Flickr100k) and in the information
 exploited (equalized grayscale, gradient directions, and their
 combination).
 
-The paths to the images you want to process must be placed in a text
+The paths to the images to process must be placed in a text
 file (one path per line).  Optionally, the path can be followed by the
 RGB components of the actual color of the illuminant.  This allows to
 evaluate the accuracy of the model.  See, for instance, the lists in
@@ -86,3 +87,19 @@ of `python3 evalmodel.py -h` for more options.
 
 
 ### Training a new model
+
+Similarly to the testing procedure, traininig a new model requires 
+that the paths to the images are listed in a text file to form a training set.
+
+The command to give is then:
+``` 
+python3 trainmodel.py --training-list train.txt model_dir
+```
+where `train.txt` is the file listing the training images and `model_dir` is a directory
+where output files are placed.  The training script supports many options (type
+`python3 trainmodel.py -h` to list them).  Default values are those used in the paper
+for the "quasi-unsupervised" setup.
+
+For supervised training it is enough to use an annotated training set (i.e. one where each
+path is followed by the ground thruth illuminant).  However, if the training set is small
+it is better to start from a model pretrained in the quasi-unsupervised setup. 
