@@ -94,7 +94,7 @@ def process_test_set(args, fold=None):
     net.to(args.device)
     net.eval()
     dataset = data.AchromaticDataset(args.test_list.format(fold=fold), False,
-                                     args.image_size, include_path=True)
+                                     args.image_size, include_path=True, include_fullres=True)
     loader = torch.utils.data.DataLoader(dataset, batch_size=args.batch_size, shuffle=False,
                                          num_workers=args.num_workers)
     angular_errors = []
@@ -108,10 +108,9 @@ def process_test_set(args, fold=None):
 
     print_ = (lambda *a,**kw: None if args.tex else print)
             
-    for rgb, illuminant, path in loader:
+    for rgb, illuminant, path, fullres in loader:
         rgb = rgb.to(args.device)
         if args.remove_gamma:
-            rgbnogamma = rgb;
             rgb = ptcolor.remove_gamma(rgb)
         illuminant = illuminant.to(args.device)
         illuminant = torch.nn.functional.normalize(illuminant)
@@ -135,16 +134,15 @@ def process_test_set(args, fold=None):
         targets.append(illuminant.cpu().numpy())
         estimates.append(estimate.cpu().numpy())
         if args.output_dir is not None:
-            balanced = processing.apply_correction(rgb, estimate)
+            balanced = processing.apply_correction(fullres, estimate.cpu())
             if args.apply_gamma:
-                rgb = ptcolor.apply_gamma(rgb)
                 balanced = ptcolor.apply_gamma(balanced)
                 estimate = ptcolor.apply_gamma(estimate.unsqueeze(-1).unsqueeze(-1)).view(-1, 3)
                 illuminant = ptcolor.apply_gamma(illuminant.unsqueeze(-1).unsqueeze(-1)).view(-1, 3)
             w = ptcolormap.apply_map(weights, 0, 1).squeeze(2)
             for k in range(balanced.size(0)):
                 name = os.path.splitext(os.path.basename(path[k]))[0]
-                im = rgb[k].cpu().numpy().transpose([1, 2, 0])
+                im = fullres[k].numpy().transpose([1, 2, 0])
                 im = (im * 255).astype(np.uint8)
                 p = os.path.join(args.output_dir, name + "_input.png")
                 scipy.misc.imsave(p, im)

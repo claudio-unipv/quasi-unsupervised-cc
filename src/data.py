@@ -19,7 +19,7 @@ def _my_open(name):
 
 class AchromaticDataset(torch.utils.data.Dataset):
     """Produces luminance, label images."""
-    def __init__(self, list_file, training, size, include_path=False):
+    def __init__(self, list_file, training, size, include_path=False, include_fullres=False):
         self.data = []
         with _my_open(list_file) as f:
             for line in f:
@@ -31,6 +31,7 @@ class AchromaticDataset(torch.utils.data.Dataset):
         self.training = training
         self.size = size
         self.include_path = include_path
+        self.include_fullres = include_fullres
 
     def __len__(self):
         return len(self.data)
@@ -58,23 +59,21 @@ class AchromaticDataset(torch.utils.data.Dataset):
         
     def __getitem__(self, index):
         filename, illuminant = self.data[index]
-        image = scipy.ndimage.imread(filename, mode="RGB")
-        image = self._resize(image)  # !!!
+        fullres = scipy.ndimage.imread(filename, mode="RGB")
+        image = self._resize(fullres)
         if self.training:
-            # image = self._pad(image)
-            # image = self._random_crop(image)
             image = self._random_flip(image)
-        else:
-            # image = self._resize(image)
-            pass
         image = image.astype(np.float32) / 255.0
         rgb = np.transpose(image, [2, 0, 1])
         t_rgb = torch.tensor(rgb, dtype=torch.float)
         t_illuminant = torch.tensor(illuminant, dtype=torch.float)
+        ret = (t_rgb, t_illuminant)
         if self.include_path:
-            return t_rgb, t_illuminant, filename
-        else:
-            return t_rgb, t_illuminant
+            ret = ret + (filename, )
+        if self.include_fullres:
+            fr = np.transpose(fullres.astype(np.float32) / 255.0, [2, 0, 1])
+            ret = ret + (torch.tensor(fr, dtype=torch.float),)
+        return ret
 
 
 def _test():

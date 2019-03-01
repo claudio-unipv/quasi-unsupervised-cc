@@ -21,7 +21,7 @@ comparable with those of the best supervised methods.
 Given an unbalanced RAW image, the method estimates the color of the illuminant in the scene to make it possible to render the photo as if it was taken under a neutral illuminant.
 
 <p align="center">
-<iframe frameborder="0" class="juxtapose" width="512" height="384" src="https://cdn.knightlab.com/libs/juxtapose/latest/embed/index.html?uid=8f3344e4-3acb-11e9-9dba-0edaf8f81e27"></iframe>
+<iframe frameborder="0" class="juxtapose" width="512" height="342" src="https://cdn.knightlab.com/libs/juxtapose/latest/embed/index.html?uid=8f3344e4-3acb-11e9-9dba-0edaf8f81e27"></iframe>
 </p>
 
 The illuminant is estimated as the weighted average of a set of pixels identified by a deep neural network trained on a large set 
