@@ -111,7 +111,10 @@ def process_test_set(args, fold=None):
     for rgb, illuminant, path, fullres in loader:
         rgb = rgb.to(args.device)
         if args.remove_gamma:
+            fullres_ng = ptcolor.remove_gamma(fullres)
             rgb = ptcolor.remove_gamma(rgb)
+        else:
+            fullres_ng = fullres
         illuminant = illuminant.to(args.device)
         illuminant = torch.nn.functional.normalize(illuminant)
         with torch.no_grad():
@@ -134,7 +137,7 @@ def process_test_set(args, fold=None):
         targets.append(illuminant.cpu().numpy())
         estimates.append(estimate.cpu().numpy())
         if args.output_dir is not None:
-            balanced = processing.apply_correction(fullres, estimate.cpu())
+            balanced = processing.apply_correction(fullres_ng, estimate.cpu())
             if args.apply_gamma:
                 balanced = ptcolor.apply_gamma(balanced)
                 estimate = ptcolor.apply_gamma(estimate.unsqueeze(-1).unsqueeze(-1)).view(-1, 3)
