@@ -102,3 +102,7 @@ venv.bak/
 
 # mypy
 .mypy_cache/
+
+# Demo images
+demo/static/images/*.jpg
+demo/static/images/*.png

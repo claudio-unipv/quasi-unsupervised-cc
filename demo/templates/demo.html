@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Quasi-unsupervised color constancy demo</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+  </head>
+  <body>
+    <div class="jumbotron text-center">
+      <h1>Quasi-unsupervised color constancy</h1>
+      <p>Interactive demo</p> 
+    </div>
+
+    <div class="container">
+      {% if file_in and file_out and file_weights and file_estimate%}
+      <center>
+      <table>
+	<tr>
+	  <td><img src="{{file_in}}" alt="Input image"></img></td>
+	  <td><img src="{{file_out}}" alt="Output image"></img></td>
+	</tr>
+	<tr>
+	  <td>Input</td>
+	  <td>Output</td>
+	</tr>
+	<tr>
+	  <td><img src="{{file_estimate}}" alt="Estimated illuminant"></img></td>
+	  <td><img src="{{file_weights}}" alt="Output weights"></img></td>
+	</tr>
+	<tr>
+	  <td>Estimated illuminant</td>
+	  <td>Weights</td>
+	</tr>
+      </table>
+      </center>
+      {% endif %}
+
+      <div class="row">
+	<div class="col-sm-12">
+	  <h3>Upload an image</h3>
+	  <p>Process your images with our method.  Please don't upload
+	    large images (> 2MB), they will be resized anyway.
+	    Processing times do not reflect the actual speed of the
+	    method. </p>
+	  {% if error %}
+   	  <div class="alert alert-warning" role="alert">
+	    {{error}}
+	  </div>
+	  {% endif %}
+	  <form class="form-horizontal" action="/upload" method="POST" enctype="multipart/form-data">
+	    <div class="form-group">
+	      <label class="control-label col-sm-2" for="upload">Select an image:</label>
+	      <div class="col-sm-10">
+		<input type="file" class="form-control-file" id="upload" name="upload" value="">
+	      </div>
+	    </div>
+	    <div class="form-group">
+	      <label class="control-label col-sm-2" for="imageurl">or enter an URL:</label>
+	      <div class="col-sm-10">
+		<input type="url" class="form-control" id="imageurl" name="imageurl" placeholder="Enter URL">
+	      </div>
+	    </div>
+	    <div class="form-group">
+	      <div class="col-sm-offset-2 col-sm-10">
+		<div class="checkbox">
+		  <label><input type="checkbox" id="srgb" name="srgb" value="srgb" checked>Remove sRGB gamma before processing</label>
+		</div>
+	      </div>
+	    </div>
+	    <div class="form-group">
+	      <div class="col-sm-offset-2 col-sm-10">
+		<button type="submit" class="btn btn-default">Submit</button>
+	      </div>
+	    </div>
+	  </form>
+	  Visit the <a href="https://claudio-unipv.github.io/quasi-unsupervised-cc/">project page</a> for more information.
+	</div>
+      </div>      
+    </div>
+  </body>
+</html>
