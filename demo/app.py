@@ -27,7 +27,7 @@ def error(message):
 
 def make_name():
     num = hash(time.time()) % 100000
-    return f"{num:05d}"
+    return "{:05d}".format(num)
 
 
 def process(im, srgb):
@@ -88,7 +88,7 @@ def upload():
             with urllib.request.urlopen(request) as f:
                 im = Image.open(f)
         except Exception as e:
-            return error(f"Error processing the URL ({e})")
+            return error("Error processing the URL ({})".format(e))
         return process_image(im, srgb)
 
     # 2) Process the uploaded image (if any)
@@ -97,7 +97,7 @@ def upload():
         try:
             im = Image.open(upfile)
         except Exception as e:
-            return error(f"Error decoding the image ({e})")
+            return error("Error decoding the image ({})".format(e))
         return process_image(im, srgb)
         
     # 3) Report an error    
