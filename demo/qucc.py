@@ -14,7 +14,7 @@ SIZE = 256
 
 class QUCC:
     def __init__(self):
-        model_data = torch.load(MODEL_FILE)
+        model_data = torch.load(MODEL_FILE, map_location="cpu")
         input_code = model_data["args"].input
         output_code = model_data["args"].output
         self.net = model.CCNet(input_code=input_code, output_code=output_code, noise=0.0)

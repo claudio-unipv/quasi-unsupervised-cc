@@ -41,11 +41,9 @@
       <div class="row">
 	<div class="col-sm-12">
 	  <h3>Upload an image</h3>
-	  <p>Process your images with our method.  Please don't upload
-	    large images (> 2MB), they will be resized anyway.
-	    Processing times do not reflect the actual speed of the
-	    method. </p>
-	  {% if error %}
+	  <p>Process your images with our method (variant trained on ILSVRC12 with gray level and gradient directions).  Please
+	    don't upload large images (> 2MB), they will be resized anyway.  Processing time does not reflect the actual speed
+	    of the method. </p> {% if error %}
    	  <div class="alert alert-warning" role="alert">
 	    {{error}}
 	  </div>
