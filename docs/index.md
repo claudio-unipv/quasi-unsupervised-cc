@@ -30,10 +30,20 @@ color of the illuminant ond so that the method can work equally well for both pu
 
 ![schema](https://raw.githubusercontent.com/claudio-unipv/quasi-unsupervised-cc/master/docs/schema.png)
 
+The neural network is a U-Net with 8 convolution/deconvolution pairs and skip connections.
+
+![schema](https://raw.githubusercontent.com/claudio-unipv/quasi-unsupervised-cc/master/docs/architecture-h.png)
+
 Here are some other examples (input, selected pixels, balanced output).
 
 ![examples](https://raw.githubusercontent.com/claudio-unipv/quasi-unsupervised-cc/master/docs/examples-test-h.jpg)
 
+
+
+
+## Interactive Demo
+
+A running version of the method is [available online](http://democusano.unipv.it:5100/upload).
 
 
 ## Installing and running the software
