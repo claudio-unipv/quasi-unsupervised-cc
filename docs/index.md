@@ -16,6 +16,19 @@ The results of an extensive experimentation demonstrate that the proposed method
 methods in the state of the art being, at the  same  time, flexible enough to be supervisedly fine-tuned to reach performance 
 comparable with those of the best supervised methods.
 
+## Paper
+
+Please include the following reference in your paper if you mention the method: 
+
+```
+@inproceedings{quasiunsupervisedcc2019,
+  title= = {Quasi-unsupervised color constancy},
+  author = {Bianco, Simone and Cusano, Claudio},
+  booktitle = {CVPR-2019},
+  year = {2019}
+}
+```
+
 ## Overview
 
 Given an unbalanced RAW image, the method estimates the color of the illuminant in the scene to make it possible to render the photo as if it was taken under a neutral illuminant.
