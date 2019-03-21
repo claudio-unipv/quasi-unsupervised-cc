@@ -39,7 +39,7 @@ Given an unbalanced RAW image, the method estimates the color of the illuminant 
 
 The illuminant is estimated as the weighted average of a set of pixels identified by a deep neural network trained on a large set 
 of "almost balanced" images. The input is first converted to grayscale so that the neural network is not influenced by the real 
-color of the illuminant ond so that the method can work equally well for both public images found on the web and for raw unbalanced images. This allows to leverage large training sets of images without having any information about the actual color of the illuminant.
+color of the illuminant and so that the method can work equally well for both public images found on the web and raw unbalanced images. This allows to leverage large training sets of images without having any information about the actual color of the illuminant.
 
 ![schema](https://raw.githubusercontent.com/claudio-unipv/quasi-unsupervised-cc/master/docs/schema.png)
 
