@@ -29,6 +29,9 @@ Please include the following reference in your paper if you mention the method:
 }
 ```
 
+Some [additional material](https://github.com/claudio-unipv/quasi-unsupervised-cc/raw/master/docs/Quasi-unsupervised-additional-material.pdf) is also available.
+
+
 ## Overview
 
 Given an unbalanced RAW image, the method estimates the color of the illuminant in the scene to make it possible to render the photo as if it was taken under a neutral illuminant.
