@@ -59,7 +59,7 @@ Here are some other examples (input, selected pixels, balanced output).
 
 ## Interactive Demo
 
-A running version of the method is [available online](http://democusano.unipv.it:5100/demo).
+A running version of the method is [available online](http://democusano.unipv.it:80/demo).
 
 
 ## Installing and running the software
