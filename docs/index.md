@@ -29,7 +29,7 @@ Please include the following reference in your paper if you mention the method:
 }
 ```
 
-Some [additional material](https://github.com/claudio-unipv/quasi-unsupervised-cc/raw/master/docs/Quasi-unsupervised-additional-material.pdf) is also available.
+The [poster presentation](https://github.com/claudio-unipv/quasi-unsupervised-cc/raw/master/docs/poster.pdf) and some [additional material](https://github.com/claudio-unipv/quasi-unsupervised-cc/raw/master/docs/Quasi-unsupervised-additional-material.pdf) are also available.
 
 
 ## Overview
