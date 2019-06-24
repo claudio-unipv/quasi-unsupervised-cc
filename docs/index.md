@@ -18,13 +18,14 @@ comparable with those of the best supervised methods.
 
 ## Paper
 
-Please include the following reference in your paper if you mention the method: 
+Please include the following reference in your paper if you mention the method (the paper is available [here](http://openaccess.thecvf.com/content_CVPR_2019/html/Bianco_Quasi-Unsupervised_Color_Constancy_CVPR_2019_paper.html)): 
 
 ```
 @inproceedings{quasiunsupervisedcc2019,
-  title= = {Quasi-unsupervised color constancy},
   author = {Bianco, Simone and Cusano, Claudio},
-  booktitle = {CVPR-2019},
+  title = {Quasi-Unsupervised Color Constancy},
+  booktitle = {The IEEE Conference on Computer Vision and Pattern Recognition (CVPR)},
+  pages = {12212--12221},
   year = {2019}
 }
 ```
