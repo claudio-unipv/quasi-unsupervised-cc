@@ -1,4 +1,4 @@
-numpy==1.16.2
+numpy==1.22.0
 Pillow==5.4.1
 pkg-resources==0.0.0
 protobuf==3.6.1
