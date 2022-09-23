@@ -6,7 +6,7 @@ MarkupSafe==1.1.1
 numpy==1.16.2
 Pillow==5.4.1
 pkg-resources==0.0.0
-protobuf==3.6.1
+protobuf==3.18.3
 scipy==1.2.1
 six==1.12.0
 tensorboardX==1.6
